@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+      header{
+          background-color: black;
+          color: white;
+          height: 100px;
+          text-align: center;
+          padding: 5px;
+      }
+      nav{
+          background-color:grey;
+          width: 250px;
+          height: 600px;
+          padding: 5px;
+          text-align: center;
+          float: left;
+          line-height: 30px;
+      }
+      section{
+          height: 600px;
+          width: 900px;
+          float: left;
+          padding: 5px;
+
+      }
+      .div1{
+         padding-left: 100px;
+         float: left;
+         width: 450px;
+      }
+      .div2{
+         float: left;
+         width: 350px;
+      }
+      footer{
+          background-color: black;
+          color: white;
+          clear: both;
+          text-align: center;
+          padding: 5px;
+      }
+  </style>
+</head>
+<body>
+    <header><h1>5月24日重新学习HTML</h1></header>
+    <nav>
+       <a href=#1>段落</a><br>
+       <a href=#2>列表</a><br>
+       <a href=#3>表格</a><br>
+       <a href=#4>计算机代码</a><br>
+       <a href=#5>表单</a><br>
+       <a href=#6>图片</a><br>
+       <a href=#7>其他</a><br>
+    </nav>
+    <section>
+        <div class="div1">
+            <h2><a name="1">段落</a></h2>
+            <pre>
+                这是一段诗，
+                一段优美的诗。
+            </pre>
+            <h2><a name="2">列表</a></h2>
+               <ul>
+                   <li>
+                       苹果
+                   </li>
+                   <li>
+                       香蕉
+                   </li>
+                   <li>
+                       橘子
+                   </li>
+               </ul>
+            <h2><a name="3">表格</a></h2>
+             <table border="1">
+                 <caption>成绩</caption>
+                 <tr>
+                     <td>语文</td>
+                     <td>数学</td>
+                     <td>英语</td>
+                 </tr>
+                 <tr>
+                    <td>80</td>
+                    <td>90</td>
+                    <td>100</td>
+                </tr>
+             </table>
+            <h2><a name="4">计算机代码</a></h2>
+            <code>
+                <pre>
+                if(a>b){
+                    console.log(a)
+                }else{
+                    console.log(b)
+                }
+            </pre>
+            </code>
+        </div>
+        <div class="div2">
+            <h2><a name="5">表单</a></h2>
+            <form>
+                 <pre>
+                     用户名:<input type="text">
+                     密  码:<input type="password">
+                 </pre> 
+            </form>
+            <h2><a name="6">图片</a></h2>
+           电影图片 <img src="图片.PNG" align="middle" style="height: 100px;width: 70px;"alt="哎呀，出错了">
+           <h2><a name="7">其他</a></h2>
+            <address>
+                北京市昌平区平西王府
+            </address>
+            <q>这是引用</q>
+            <hr>
+            
+        </div>
+    </section>
+    <footer><h2>权限归我所有</h2></footer>
+</body>
+</html>
