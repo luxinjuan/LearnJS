@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        栈结构push,
+        数组.push(数据1，数据2，...)
+        在数组末尾添加元素
+        */
+        var arr=[]
+        arr.push(1,2,3,4)
+        alert("push在末尾添加元素："+arr)
+        /*
+        栈结构pop,
+        数组.pop(数据1，数据2，...)
+        将数组的末尾参数删除
+        */
+        arr.pop()
+        alert("pop删除末尾元素："+arr)
+        /*
+          队列结构
+          结构：从末尾进，从头部出
+          特点：先进先出
+          数组.shift() 从头部取元素
+          数组.unshift(参数1，参数2) 从数组的头部添加元素
+        */
+         var newArr =['数学','语文','英语']
+         var res=newArr.shift()
+         alert("shift删除头部元素："+res)
+         var addArr=newArr.unshift('物理')
+         alert("unshift添加头部元素："+addArr)
+         
+         /*
+            splice(),join(),reserve(),sort()等
+         */
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

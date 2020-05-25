@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         /*
+          求传入任意个数的和？
+       */
+       function total(){
+           var res=0;
+           for(var i=0;i<arguments.length;i++){   //arguments每一个封装函数都会有，系统内置的
+               res+=arguments[i]
+           }
+           return res
+       }
+       alert("总数:"+total(10,20,30,40,50))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
