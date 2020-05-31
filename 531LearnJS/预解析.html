@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+         /*
+            1.js引擎运行js分为两步；预解析和代码执行
+              （1）.预解析js引擎会把js里面的var还有function提升到当前作用域的最前面
+              （2）.代码执行 按照代码书写的顺序从上往下执行
+            2.预解析分为变量预解析（变量提升）和函数预解析 （函数提升） 
+              （1）.变量提升 就是所有的变量声明提升到当前的作用域最前面 不提升赋值操作
+              （2）.函数提升  就是把所有的函数声明提升到作用域的最前面   不调用函数
+         */
+        //1. 问
+        console.log(num)    //undefined  坑1
+        var num = 1;
+        //相当于执行以下代码
+        /*
+           var num;
+           console.log(num);
+           num = 10;
+        */
+
+        //2.问
+        fn();  
+        function fn(){
+            console.log(222);    //正常打印222
+        }
+        //3问 
+        //fun();                  //fun is not a function,报错  坑2
+        var fun = function(){
+         console.log(333)        
+        }
+        //fun();正常执行
+        //函数表达式 调用必须写在函数表达式的下面
+        //相当于执行以下代码
+       /*   var fun;
+            fun();
+            fun = function(){
+              console.log(333)        
+            }
+       */
+      
+       //预解析示例1
+         var n = 1;
+         f();
+         function f(){
+            console.log(n)
+            var n = 2  
+         }
+        //相当于以下代码
+        /*
+            var n；  
+            function f(){
+                var n;    提升到函数内最前面，之后的代码顺序写
+                console.log(n)    所以打印undefined
+                n = 2  
+            }
+            n=1;
+            f();
+        */
+        //预解析示例2
+        var a = 18;
+        f1();
+        function f1(){
+            var b = 9;
+            console.log(a);
+            console.log(b);
+            var a = '123';
+        }
+         //相当于以下代码
+         /*
+            var a;
+             function f1(){
+                 var b;
+                 var a;
+                 b = 8;
+               console.log(a);    打印undefined
+               console.log(b);    打印8
+                 a = '123';
+            }
+            a=18;
+            f1();
+         */
+
+         //预解析示例3
+         f2();
+         console.log(c);
+         console.log(b);
+         console.log(d);
+         function f2(){
+             var d = b = c = 9;
+             //相当于 var a = 9;b = 9;c = 9; b和c 直接赋值 没有var声明  当全局变量
+             console.log(d);
+             console.log(b);
+             console.log(c);
+         }
+         /*
+          相当于以下代码
+           function f2(){
+               var d;
+        
+             d = b = c = 9;
+             console.log(d);    打印9
+             console.log(b);    打印9
+             console.log(c);    打印9
+         }
+         f2();
+         console.log(c);    打印9
+         console.log(b);    打印9
+         console.log(d);    报错，因为没有全局变量
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

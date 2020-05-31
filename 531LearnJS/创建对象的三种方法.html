@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //方法1.
+      var  obj={
+            name:"张三",
+            age:'18',
+            sex:'男'
+        }
+        console.log(obj.age) //调用
+
+        //方法2.使用new创建
+        var obj1 = new Object;   
+        obj1.name = "张三丰";
+        obj1.age = '20';
+        obj1.sex = '女';
+        console.log(obj1.name);
+        console.log(obj1);
+
+        
+        //方法3.构造函数创建对象；构造函数泛指一大类
+        /*function 构造函数名(){
+           this.属性 = 值;
+           this.方法 = function(){
+
+           }
+       }
+       new 构造函数名();   调用
+       */
+      function Star(uname,age,sex){
+          this.name = uname;
+          this.age = age;
+          this.sex = sex;
+          this.sing = function(sang){
+              console.log(sang);
+          }
+      }
+      //1.new构造函数可以在内存中创建一个空的对象
+      //2.this就会指向刚才创建的空对象
+      //3.执行构造函数里面的代码，给这个空对象添加属性和方法
+      //4.返回这个对象（不需要return）
+     var ldh = new Star('刘德华',18,'男');  //调用构造函数返回一个对象，对象是特指
+     console.log(ldh.name);
+     console.log(ldh['sex']);
+     ldh.sing('冰雨');
+     /*
+        1.构造函数名首字母要大写
+        2.构造函数名不需要return 就可以返回结果
+        3.调用构造函数必须使用new
+        4.只要new Star() 调用函数就创建一个对象ldh {}
+        5.属性和方法前必须添加this
+     */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

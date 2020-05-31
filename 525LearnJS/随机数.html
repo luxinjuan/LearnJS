@@ -10,7 +10,15 @@
     */
      document.write(Math.random());  //随机小数
      document.write(parseInt(Math.random()*10));  //随机数
-     
+     //两个数之间的随机整数  并且包含这个两个整数
+     function getRandom(min,max){
+         return Math.floor(Math.random()*(max-min+1))+min;
+     }
+     console.log(getRandom(1,10));
+
+     //随机点名
+     var arr = ['张三','张三丰','小宫','小红','李四']
+     console.log(arr[getRandom(0,arr.length-1)]);
     </script>
 </head>
 <body>

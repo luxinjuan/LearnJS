@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+          利用构造函数创建两个英雄对象。函数中的公共部分包括：姓名（name），类型(type)，血量(blood)，攻击（attack）
+          应用对象的信息如下：
+          廉颇 力量型  500血量  攻击：近战
+          后羿 射手型  100血量  攻击：远程 
+        */
+       function Hero(name,type,blood,attack){
+           this.name = name;
+           this.type = type;
+           this.blood = blood;
+           this.attack  = attack;
+       }
+       var lp = new Hero('廉颇','力量型','500血量', '近战');  //调用对象返回的是一个对象
+       console.log(lp.name);
+       console.log(lp);
+       var hy =  new Hero('后羿','射手型','100血量', '远程');
+       console.log(hy.type);
+       console.log(hy);
+       
+       
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
