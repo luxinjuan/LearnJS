@@ -1,6 +1,6 @@
 
 /*
-  选择排序：
+  选择排序
 */
 
 function changeSortAsc(arr){     //升序

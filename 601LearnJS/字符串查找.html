@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+           1.查找字符串“abcoefoxyozzopp”中所有o出现的位置以及次数
+           2.核心算法：先查找第一个o出现的位置
+           3.然后  只要indexOf 返回的结果不是-1  就继续往后查找   indexOf(查找字符,[查找开始位置])
+           4.因为indexOf只能查找第一个，所以后面的查找，一定是当前索引加1，从而继续查找。
+        */
+       var str = "abcoefoxyozzopp";
+       var index = str.indexOf('o');
+       var num = 0
+       while(index !== -1){
+           console.log(index);
+           num++;
+           index = str.indexOf('o',index+1);
+       }
+       console.log('字符串中o出现的次数是:'+num)
+
+
+       /*
+         1.查找数组['red','blue','red','black','blue','red']中red出现的位置以及次数
+
+       */
+        var arr = ['red','blue','red','black','blue','red'];
+        var indexArr = arr.indexOf('red');
+        var count = 0;
+        while(indexArr !== -1){
+            console.log(indexArr);
+            count++;
+            indexArr = arr.indexOf('red',indexArr+1)
+        }
+        console.log('数组中red出现的次数是:'+count)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

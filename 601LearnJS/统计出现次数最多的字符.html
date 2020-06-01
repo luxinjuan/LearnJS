@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+          1.查找字符串"abcoefoxyozzopp"中出现次数最多的字符
+          2.把每个字符都存储给对象，如果对象没有该属性，就为1，如果存在就+1
+          3.遍历对象，得到最大值和该字符
+        */
+        var str = "abcoefoxyozzopp";
+        var obj = {};
+        for(var i = 0;i<str.length;i++){
+            var chars = str.charAt(i);   //chars 是字符串的每一个字符  charAt(位置)查找位置所在的是什么字符
+            if(obj[chars]){        //obj[char]得到的是属性值
+                obj[chars]++;
+            }else{
+                obj[chars] = 1;
+            }
+        }
+        console.log(obj)
+
+
+        //遍历obj，输出最大值及属性
+        var max = 0;
+        var ch = '';
+        for(var k in obj){    //k得到的是属性名，obj[k]得到的是属性值
+            if(max < obj[k]){
+                max = obj[k];
+                ch = k
+            }
+        }
+        console.log(max)
+        console.log('出现次数最多的字符是：'+ch+'  出现了：'+max+'次')
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

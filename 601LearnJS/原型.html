@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+           原型prototype
+           1.所创建的每一个函数，解析器都会向函数中添加一个属性prototype，
+              这个属性对应着一个对象，这个对象就是所谓的原型对象
+           2.如果函数作为普通函数调用时，prototype没有任何作用
+           3.当函数以构造函数的形式调用时，它所创建的对象中都会有一个隐含的属性，
+                指向该构造函数的原型对象，可以通过__proto__来访问该属性
+           4.原型对象相当于一个公共的区域，所有同一个类的示例都可以访问这个原型对象，
+                我们可以将对象中共有的内容，统一设置到原型对象中。
+           5.当我们访问对象的一个属性或方法时，它会先在对象自身中寻找，如果有则直接使用，
+              如果没有则会去原型对象中寻找，如果找到则直接使用。
+           6. 创建构造函数时，可以将这些对象共有的属性和方法，统一添加到构造函数的原型对象中 ，
+               这样不用分别为每一个对象添加，也不会影响到全局作用域，就可以使每个对象都具有这些属性和方法了。 
+        */
+       //创建一个构造函数
+        function Person(){
+           
+        }
+        Person.prototype.name='xiaohong'  
+        Person.prototype.sexe='女' 
+        Person.prototype.sayHello = function(){
+            alert("hello");
+        };
+        
+
+        console.log(Person.prototype);
+        var mc = new Person();   //以构造函数调用，mc有一个隐含的属性__proto__
+        var mc2 = new Person();
+        console.log(mc.__proto__)     //__proto__查找上一级原型的属性，mc.__proto__ = Person.prototype
+       
+        mc.age = 18;
+        console.log(mc)   //直接在自身中查找
+        console.log(Person.prototype)   
+        
+        mc.sayHello()    //调用函数
+
+        /*
+           原型对象也是对象，所以它也有原型，
+             当我们使用一个对象的属性或方法时，会先在自身中寻找，
+               自身中如果有，则直接使用，
+               如果没有则去原型对象中寻找，如果原型对象中有，则使用，
+               如果原型对象中没有则去原型的原型中寻找,直到找到Object对象的原型。
+               Object对象的原型没有原型，如果在Object中依然没有找到，则返回undefined   
+        */
+       console.log(mc.__proto__.__proto__)  //原型的原型
+        console.log(mc.__proto__.__proto__.hasOwnProperty("hasOwnPropertype"))  //
+        console.log(mc.__proto__.__proto__.__proto__)   //一层一层往上查找，最后到null
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
