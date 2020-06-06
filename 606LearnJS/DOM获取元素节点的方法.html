@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+           DOM:document object model(文档对象模型)
+              节点类型：
+                 元素节点 <div><div>
+                 属性节点 id =""
+                 文本节点  div文本
+          元素节点的获取:   
+               document.getElementById("") 
+               document.getElementsByName(name属性的值) 
+               node.getElementBysTagName(标签名) 从node节点开始  返回值：伪数组/类数组   可遍历数组
+               node.getElementByClassName(class名字)   一般使用在表单元素里    
+               document.querySelector() 返回值：一个元素节点，找到符合条件的第一个元素节点
+               document.querySelectorAll() 返回值：一个伪数组。可遍历数组
+
+        */
+       window.onload = function(){//写在这里的代码，是整个页面加载完成只要执行
+           var oDom = document.getElementById("div1")
+           alert(oDom.title)
+           alert(oDom.id)
+           alert(oDom.className)   //访问class，使用className访问
+           alert(oDom.style.height) //只能访问标签内的样式
+           /*
+             获取当前的有效样式
+             系统提供两个方法（不同的浏览器）；
+             currentStyle['']  IE兼容
+             getComputedStyle()[];//火狐、谷歌
+           */
+           //跨浏览器兼容
+           function getStyle(node,cssStyle){
+               return node.currentStyle ? node.currentStyle[cssStyle]:getComputedStyle(node)[cssStyle];
+           }
+
+           alert(oDom.style.backgroundColor)  //去横行，第二个单词首字母大写
+
+           oDom.style.backgroundColor = 'blue'
+       }
+       
+
+    </script>
+</head>
+<body>
+    <div id='div1' title='hello' class='box' style='width:300px;height:300px;background-color:red'>div文本</div>
+</body>
+</html>

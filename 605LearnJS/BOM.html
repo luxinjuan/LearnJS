@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //系统对话框，window方法
+       //  alert()  弹出提示框
+       alert("Hello Word") 
+       window.alert("word");
+       //  confirm()  弹出一个带确定和取消的提示框，返回值：点击确定返回true,点击取消返回false
+       var A = confirm("你确定要离开吗？")
+       if(A = true){
+           alert("呜呜呜，你不喜欢我，哼")
+       }else{
+           alert("哈哈，爱你呦")
+       }
+       /* 
+         prompt() 弹出一个带输入框的提示框,
+             参数：第一个参数：面板上显示的内容，第二个参数：输入框里面的默认（可以不传入），
+             返回值：点击确认，返回输入框中的内容，点击取消，返回null 
+       */
+        var res = prompt("请输入内容","luxinjuan")
+        if(res = "luxinjuan"){
+            document.write("you are right")
+        }else{
+            document.write("you are error")
+        }  
+    </script>
+</head>
+<body>
+ 
+</body>
+</html>
