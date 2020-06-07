@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+           document.write()  [注]会覆盖页面上原有的内容
+
+           createElement()
+                格式：document.createElement()
+                参数：标签名
+                返回值:创建好的这个节点
+            
+           appendChild()
+                格式：node1.appendChild(node2);
+                功能：将node2插入到node1节点的尾部     
+            
+            createTextNode()
+                格式：document.createTextNode(文本)
+                功能：创建文本节点（纯文本）
+
+            insertBefore()
+                格式：document.box1.parentNode.insertBefore(box2,box1);
+                功能：将box2添加到box1的前面
+            replaceChild()
+                 格式： document.box1.parentNode.replaceChild(box2,box1);  
+                 功能：用box2节点替换box1节点
+            cloneNode()
+                  格式：node.cloneNode()   
+                  格式2：node.cloneNode(true) 克隆节点本身和子节点
+                  返回值：克隆出的新节点 
+
+            removeChild()
+                  格式：document.box1.parentNode. removeChild(box1)
+                  功能：删除节点
+                
+                       
+        */
+       window.onload = function(){
+           var oDiv = document.getElementById('div1')
+           var Btn = document.getElementById('btn');
+
+           Btn.onclick =function(){
+            //    var oP = document.createElement('p')
+            //    var oText = document.createTextNode("<h1>新增标签内容</h1>");    
+            //    oP.appendChild(oText);
+
+               //document.body.insertBefore(oP,oDiv)  //将p标签插入到div之前
+              // document.body.replaceChild(oP,oDiv)   //div标签替换成p标签
+
+               //var newNode = oDiv.cloneNode();  //只在内标签增加，不显示内容
+            
+            //    var newNode = oDiv.cloneNode(true); 
+            //    document.body.appendChild(newNode);
+                  
+                  document.body.removeChild(oDiv);
+
+           }
+
+         
+       }
+    </script>
+</head>
+<body>
+    <div id='div1' >div文本</div>
+    <button id='btn'>节点操作</button>
+</body>
+</html>

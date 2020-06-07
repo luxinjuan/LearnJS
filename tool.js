@@ -14,3 +14,8 @@
  function getStyle(node,cssStyle){
     return node.currentStyle ? node.currentStyle[cssStyle]:getComputedStyle(node)[cssStyle];
 }
+//随机颜色设置
+function randomColor(){
+   var str ="rgba(" +parseInt(Math.random() *256)+","+parseInt(Math.random() *256)+","+parseInt(Math.random() *256);
+   return str;
+}

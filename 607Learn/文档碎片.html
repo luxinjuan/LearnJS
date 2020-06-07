@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            //创建10万个div节点，添加到页面上
+            console.time("test1")
+            //test1: 200.13525390625ms   倒计时结束
+            for(var i=0;i<100000;i++){
+                var newDiv = document.createElement("div");
+                document.body.appendChild(newDiv);
+            }
+            console.timeEnd("test1");
+
+
+            /*
+                先创建好10万个节点，将10万个节点插入到一个节点上，最后将这1个节点添加到页面上
+            */
+            //test2: 101.8662109375ms  倒计时结束   文档碎片
+             console.time("test2")
+             var node = document.createElement("div")
+             for(var i=0;i<100000;i++){
+                var newDiv = document.createElement("div");
+                node.appendChild(newDiv);
+            }
+            document.body.appendChild(node);
+            console.timeEnd("test2")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

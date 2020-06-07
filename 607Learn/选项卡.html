@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 button{width: 100px;height: 30px;background-color: rgb(134, 161, 11);color: white;font-size: 18px;}
+        #div1.active{background-color: yellow;color:blue}
+        #div1 div{width: 340px;height: 300px;border: 1px solid black; color:red;display: none;}
+    </style>
+    <script>
+        window.onload = function(){
+            var oDiv = document.getElementById("div1");
+            var But = oDiv.getElementsByTagName("button");
+            var oDiv2 = oDiv.getElementsByTagName("div");
+
+            //给每一个按钮添加点击事件
+            for(var i=0;i<But.length;i++){
+
+                But[i].index = i;
+                But[i].onclick = function(){
+                    //取消所有按钮的样式
+                    for(var j=0;j<But.length;j++){
+                        But[j].className = '';
+                        oDiv2[j].style.display = 'none';
+                    }
+                    oDiv2[this.index].style.display = 'block';
+                    this.className = 'active';
+                }
+            }
+        }
+    </script>    
+</head>
+   
+<body>
+    <div id='div1'>
+        <button class='active'>HTML5</button>
+        <button>JAVA</button>
+        <button>Python</button>
+        <div style='display:block'>HTML5的简介</div>
+        <div>JAVA的简介</div>
+        <div>Python的简介</div>
+    </div>
+</body>
+</html>

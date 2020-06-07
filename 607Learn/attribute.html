@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            setAttribute  
+            getAttribute   支持自定义属性，class的访问
+            removeAttribute()
+        */
+        window.onload = function(){
+            var oDiv = document.getElementById('div1')
+            // alert(oDiv.id)
+            // alert(oDiv.getAttribute("id"))
+
+            // alert(oDiv.className);
+            // alert(oDiv.getAttribute("class"));   //可访问class
+
+            alert(oDiv.xxx)           //不可访问自定义属性  undefined
+            alert(oDiv.getAttribute("xxx"))  //可访问自定义属性   yyy
+
+            oDiv.className='box4' //更改属性
+            oDiv.zzz  = 'ooo';   //在行间不会显示新增属性
+            alert(oDiv.zzz)    //可弹出
+
+            oDiv.setAttribute("class","box5"); //更改class属性
+            oDiv.setAttribute("ppp",'ooo')      //在行间会显示新增属性
+
+            oDiv.className = '';//删除属性，不是真正的删除，还有class
+            oDiv.removeAttribute('title') //直接删除
+        }
+    </script>
+</head>
+<body>
+    <div id='div1' class='box' title='hello' xxx='yyy'>div</div>
+</body>
+</html>
