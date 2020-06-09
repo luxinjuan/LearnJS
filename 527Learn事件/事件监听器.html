@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+          1.传统的事件绑定
+             <1>重复添加，覆盖
+             <2>不能精确的删除事件上的某一个函数   
+
+          2.事件监听器（低版本浏览器不兼容）
+                addEventListener()
+                    格式：node.addEventListener()      
+                    参数：
+                        第一个参数   事件类型
+                        第二个参数   绑定函数
+                        第三个参数   布尔值  true事件捕获  false事件冒泡,默认
+                    使用情况：（1）给一个控件的某个事件添加多个函数
+                 removeEventListener()
+                      格式：node.removeEventListener()      
+                      参数：
+                        第一个参数   事件类型
+                        第二个参数   删除函数名
+                      使用情况：（2）精确的删除某个事件上的某一个函数  
+        */
+      
+         window.onload = function(){
+             var obtn = document.getElementById("btn1")
+              //传统的事件绑定
+            //  obtn.onclick =function(){
+            //      alert("点击1");
+            //  }
+            //  obtn.onclick =function(){
+            //      alert("点击2");   //会覆盖上一个事件
+            //  }
+
+             //事件监听器
+             obtn.addEventListener("click",function(){
+                alert("点击1");
+             },false);
+             obtn.addEventListener("click",function(){
+                alert("点击2");
+             },false);
+         }
+
+
+    </script>
+</head>
+<body>
+    <button id="btn1">点击</button>
+   
+</body>
+</html>

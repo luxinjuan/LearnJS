@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+         本地存储技术：
+           localStorage
+              1.永久存储
+              2.最大存储5M  客户端的一个微型数据库
+              3.只能存储string
+           cookie
+              1.可设置过期时间
+              2.最大可存4KB
+              3.每一个域名下面最多存储50条数据
+           sessionStorage
+              
+
+           localStorage 对象
+              setItem(name,value);   存储
+              getItem(name);        获取存储
+              removeItem(name);     删除存储
+        */
+       if(!window.localStorage){
+           alert("当前页面不支持localStorage");
+       }else{
+           localStorage.setItem("a","1");   //谷歌浏览器查看Aplication下的LocalStrage/file://
+           localStorage.b='2';
+           localStorage["c"] = "3";
+            
+           alert(localStorage['a'])
+           alert(localStorage.getItem("b"));
+           alert(localStorage.c);
+         
+
+       }
+       window.onload = function(){
+           var obtn = document.getElementById("btn");
+           obtn.onclick = function(){
+               localStorage.removeItem("a")      //删除a
+           }
+       }
+    </script>
+</head>
+<body>
+    <button id="btn">删除存储</button>
+</body>
+</html>    

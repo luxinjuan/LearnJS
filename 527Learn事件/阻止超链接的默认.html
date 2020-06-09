@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../tool.js"></script>
+    <script>
+        window.onload = function(){
+            var a1 = document.getElementById("a1");
+            // a1.onclick = function(){
+            //     return confirm("你确定离开当前页面吗？")
+            // }
+            a1.onclick = function(ev){
+                var e = ev||window.event;
+                perDef(e);
+                alert("后续操作")
+            }
+        }
+    </script>
+</head>
+<body>
+    <a id="a1" href="https://wwww.baidu.com">百度</a>
+</body>
+</html>

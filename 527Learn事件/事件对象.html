@@ -15,15 +15,19 @@
              alert(e)
              alert("HELLO WORD");
          }
-
-         window.onload=function(){
+        // 事件绑定：
+        //     元素节点.on+事件类型 = 匿名函数；
+        //     【注】系统会在事件绑定一旦完成的时候，生成一个时间对象
+        //     【注】触发事件的时候，系统会自动去调用事件绑定的函数，将对象当作第一个参数传入
+         window.onload = function(){
              var oBtn = document.getElementById('bnt1');
-             //oBtn.onclick = show;
+             oBtn.onclick = show;
              
              oBtn.onclick = function(ev){
-                 //事件对象获取,固定写法
-                 var e = ev || window.event;
-                 alert(e);
+
+                 alert(e);     //这种通过形参拿事件对象的方法在IE8以下不兼容。IE8以下使用window.event
+                 var e = ev || window.event;   //事件对象获取,固定写法
+                
              }
          }
     </script>

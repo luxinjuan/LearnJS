@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{padding: 50px;}
+        #div1{background-color: brown;}
+        #div2{background-color: chartreuse;}
+        #div3{background-color: cornflowerblue;}
+    </style>
+    <script>
+         window.onload = function(){
+            var oDiv = document.getElementsByTagName('div');
+            for(var i=0;i<oDiv.length;i++){
+                oDiv[i].addEventListener("click",function(){
+                       alert(this.id);
+             },true);   //true设置为事件捕获，从div1，div2,div3依次执行，即从外到内捕获
+            }    
+         }
+    </script>
+</head>
+<body>
+    <div id='div1'>
+        <div id='div2'>
+            <div id='div3'> 
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

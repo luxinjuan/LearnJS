@@ -77,9 +77,9 @@
              function f1(){
                  var b;
                  var a;
-                 b = 8;
+                 b = 9;
                console.log(a);    打印undefined
-               console.log(b);    打印8
+               console.log(b);    打印9
                  a = '123';
             }
             a=18;
@@ -93,7 +93,7 @@
          console.log(d);
          function f2(){
              var d = b = c = 9;
-             //相当于 var a = 9;b = 9;c = 9; b和c 直接赋值 没有var声明  当全局变量
+             //相当于 var d = 9;b = 9;c = 9; b和c 直接赋值 没有var声明  当全局变量
              console.log(d);
              console.log(b);
              console.log(c);
