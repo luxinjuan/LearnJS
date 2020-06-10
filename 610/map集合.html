@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         /* 
+            map映射 
+         */
+        let map = new Map()
+        map.set("张三","摆地摊")
+        map.set("李四","摆地摊")
+        map.set("王二麻子","摆地摊")
+        map.set("王五","摆地摊")
+        console.log(map)
+
+        /*
+           取值
+        */
+          alert(map.get("王五"));
+
+        // map遍历  通过for of
+           for(let[key,value] of map){
+              console.log(key,value);
+            }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

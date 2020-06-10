@@ -15,12 +15,26 @@
         console.log(obj.age) //调用
 
         //方法2.使用new创建  工厂模式创建对象
-        var obj1 = new Object;   
-        obj1.name = "张三丰";
-        obj1.age = '20';
-        obj1.sex = '女';
-        console.log(obj1.name);
-        console.log(obj1);
+
+        function creatPeople(name,age,sex){
+            //构建
+            var obj1 = new Object();   
+            //加工
+            obj1.name = name;
+            obj1.age = age;
+            obj1.sex = sex;
+            obj1.showMessage = function(){
+                alert("我的名字叫"+this.name+"性别"+this.sex+"今年"+this.age+"了")
+            }
+            //出厂
+           return obj1  
+        }
+        var p1 = creatPeople("张三",18,"男")
+        p1.showMessage();
+        var p2 = creatPeople("张四",20,"女")
+        p2.showMessage();
+        alert( p1.showMessage===p2.showMessage)    //false
+       
 
         
         //方法3.构造函数创建对象；构造函数泛指一大类。
@@ -30,25 +44,37 @@
 
            }
        }
+       
+       
        new 构造函数名();   调用
        */
       function Star(uname,age,sex){
           this.name = uname;
           this.age = age;
           this.sex = sex;
-          this.sing = function(sang){
+        //   this.sing = function(sang){
+        //       console.log(sang);
+        //   }
+      }
+
+      Star.prototype.sing = function(sang){    //函数写在原型上可以共用
               console.log(sang);
-          }
+              alert(sang)
       }
       //
       //1.new构造函数可以在内存中创建一个空的对象
       //2.this就会指向刚才创建的空对象
       //3.执行构造函数里面的代码，给这个空对象添加属性和方法
       //4.返回这个对象（不需要return）
-     var ldh = new Star('刘德华',18,'男');  //调用构造函数返回一个对象，对象是特指
-     console.log(ldh.name);
-     console.log(ldh['sex']);
+   
+      var ldh = new Star('刘德华',18,'男');  //调用构造函数返回一个对象，对象是特指
+    //  console.log(ldh.name);
+    //  console.log(ldh['sex']);
      ldh.sing('冰雨');
+     var hcy = new Star('华晨宇',20,'男');
+     hcy.sing('好想爱这个世界');
+     alert(ldh.sing === hcy.sing)  //true   共享一套函数
+
      /*
         1.构造函数名首字母要大写
         2.构造函数名不需要return 就可以返回结果

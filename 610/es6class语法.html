@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //class语法
+        class Person{
+             constructor(name,sex,age){
+                 this.name = name;
+                 this.sex = sex;
+                 this.age = age;
+                }
+                 showSelf(){
+                     alert(`我是一个叫${this.name},今年${this.age}岁的${this.sex}生`);
+                 } 
+        }
+        // var p1 = new Person("bule","男",18);
+        // p1.showSelf();
+
+        //extends继承
+        class Worker extends Person{
+            constructor(name,sex,age,job){
+                super(name,sex,age);
+                this.job = job;
+            }
+            showJob(){
+              alert("我的工作是"+this.job);
+          } 
+        }
+
+        var p1 = new Worker("小米",20,"女","程序媛");
+          p1.showSelf();
+          p1.showJob();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Array.from(伪数组)  将伪数组转成真数组
+        */
+        //   window.onload = function(){
+        //       var alis = document.getElementsByTagName("li");
+        //       alert(alis.length)
+
+        //       alis =Array.from(alis);
+        //       alis.push("hello");
+
+        //       alert(alis);
+        //   }
+          /*
+             find()  在数组中查找符合条件的元素，只要找到第一个符合条件的元素，就终止查找
+             findIndex()  找到元素下标
+          */
+
+          var arr=[10,30,50,20,40]
+        //   alert(arr.find(item=>item>20));
+        //   alert(arr.findIndex(item=>item>20))
+
+
+           /*
+              arr.copyWithin()
+               第一个参数：从哪个下标开始
+               第二个参数和第三参数是：范围[start,end]
+           */
+          var c = arr.copyWithin(2,30,60)
+           alert(c) 
+    </script>
+</head>
+<body>
+     <ul>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+     </ul>
+</body>
+</html>

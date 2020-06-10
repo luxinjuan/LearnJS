@@ -59,3 +59,10 @@ function removeEvent(node,eventType,funcName){
         node.和detachEvent("on"+eventType,funcName);
     }
 }
+//设置cookie的过期时间
+function afterOfDate(n){
+    var d = new Date();
+    var day =d.getDate();
+    d.setDate(n+day);
+    return d;
+}

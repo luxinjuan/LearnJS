@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+          cookie可设置name=value;可选项：expires = date,path =path;domain =someshere.com;secure
+            [注]火狐只支持本地加载的文件缓存cookie，谷歌只支持服务器加载文件缓存cookie
+        */
+
+        //设置cookie
+        document.cookie ='username=xxx';
+
+        //获取设置cookie
+        alert(document.cookie);
+
+        /*
+           encodeURIComponent   将中文编译成对应的字符
+           decodeURIComponent   将对应的字符编译成对应的中文
+        */
+
+        document.cookie ='username='+encodeURIComponent("百度");
+        alert(decodeURIComponent(document.cookie));
+
+        /*
+           expire：过期时间,可选项
+              必须填写，日期对象
+              【注】系统会自动清除过期的cookie
+        */
+         //获取n天后的日期
+         function afterOfDate(n){
+             var d = new Date();
+             var day =d.getDate();
+             d.setDate(n+day);
+             return d;
+         }
+         document.cookie="username=xxx;expire="+afterOfDate(7);  
+         
+            
+         window.onload = function(){
+             var obtn = document.getElementById("btn");
+             obtn.onclick=function(){
+              //  document.cookie="username=xxx;expire="+afterOfDate(7); //设置7天过期
+                 document.cookie="username=xxx;expire="+afterOfDate(-1);   //设置已过期 
+
+             }
+         }
+
+         /*
+             path 限制访问路径 
+               如果不去设置，默认是加载当前.html文件的路径
+               【注】设置的cookie的路径，和加载当前文件的路径，必须一致，如果不一致，cookie访问失败      
+         */
+         //document.cookie='username=xxx;path='+'/code14/cookie';
+         /*
+            domain 限制访问域名
+               如果不设置，默认加载当前.html文件的服务器域名/ip
+                  [注]如果加载当前文件域名和设置的域名不一致，设置cookie失败。
+         */
+          document.cookie = 'username=xxx;domain='+"localhosx";
+          /*
+             secure  安全
+                 如果不设置，设置cookie，可以通过http协议加载文件设置
+                                      也可以通过https协议加载文件设置
+                 [注]设置这个字段以后，只能设置https协议加载cookie    https需证书认证                  
+          */
+          document.cookie = 'username=xxx;secure='
+        </script>
+</head>
+<body>
+    <button id="btn">删除cookie</button>
+</body>
+</html>
