@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+           setItem（"key","value"）存入数据
+           getItem("key")读取数据
+           removeItem("key")
+           clear()清除所有保存的数据
+         */
+
+        //检查window对象是否支持
+        if (window.sessionStorage) {
+            alert("支持sessionStorage");
+            sessionStorage.setItem("a", "1");
+            sessionStorage.b = '2';
+            sessionStorage["c"] = "3";
+
+            for (var i = 0; i < sessionStorage.length; i++) {
+                alert(sessionStorage.key(i));     //key指根据位置从0开始获得键值
+            }
+
+            //alert(sessionStorage['a']); //1
+
+            //alert(sessionStorage.getItem('b')); //2
+
+            sessionStorage.removeItem('c');
+           // sessionStorage.clear();
+        } else {
+            alert("不支持sessionStorage")
+        }
+
+        window.onload = function(){
+           var obtn = document.getElementById("btn");
+           obtn.onclick = function(){
+            sessionStorage.removeItem("a")      //删除a
+           };
+           var btn2 = document.getElementById("btn2")
+           btn2.onclick=function(){
+            sessionStorage.clear()  
+           }
+
+       }
+    </script>
+</head>
+
+<body>
+    <button id="btn">删除存储</button>
+    <button id="btn2">清空存储</button>
+</body>
+
+</html>

@@ -20,7 +20,7 @@
                document.querySelectorAll() 返回值：一个伪数组。可遍历数组
 
         */
-       window.onload = function(){//写在这里的代码，是整个页面加载完成只要执行
+       window.onload = function(){//写在这里的代码，是整个页面加载完成直接执行
            var oDom = document.getElementById("div1")
            alert(oDom.title)
            alert(oDom.id)
@@ -37,7 +37,7 @@
                return node.currentStyle ? node.currentStyle[cssStyle]:getComputedStyle(node)[cssStyle];
            }
 
-           alert(oDom.style.backgroundColor)  //去横行，第二个单词首字母大写
+           alert(oDom.style.backgroundColor)  //去横线，第二个单词首字母大写
 
            oDom.style.backgroundColor = 'blue'
        }
