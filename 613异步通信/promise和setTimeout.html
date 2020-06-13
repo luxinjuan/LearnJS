@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Promise移步通信和setTimeout延时,Promise属于微任务，setTimeout属于宏任务，
+        //微任务优先级高于宏任务，
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('异步1')
+                // console.log('异步1')
+            }, 3500) //回调函数
+        })
+
+        let p2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('异步2')
+                // console.log('异步2')
+            }, 800) //回调函数
+        })
+
+        let p3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('异步3')
+                // console.log('异步3')
+            }, 1500) //回调函数
+        })
+        //以上依次打印异步2，异步3，异步1
+
+        //以下方法一更改setTimeout的执行顺序
+        // p1.then(value=>{
+        //     console.log(value);
+        //     return p2;
+        // }).then(value=>{
+        //     console.log(value)
+        //     return p3;
+        // }).then(value=>{
+        //     console.log(value)
+        // })
+        //依次输出结果：异步1，异步2，异步3
+
+
+        //以下Promise.all()方法二更改setTimeout的执行顺序
+        //Promise.all()将Promise实例的回调组合成数组输出
+        // let p = Promise.all([p1, p2, p3]); //数组中是什么顺序，就按什么顺序执行
+        // p.then(value => {
+        //     console.log(value)
+        // })
+        //输出一个数组，结果依次：异步1，异步2，异步3
+
+
+         //Promise.race()只输出第一个改变状态的实例
+        let p = Promise.race([p1, p2, p3]); //数组中是什么顺序，就按什么顺序执行
+        p.then(value => {
+            console.log(value)    
+        })
+         //输出：异步2
+
+
+
+         
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

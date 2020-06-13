@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+           Proxy 代理，给目标对象设置拦截，可以对外界的访问进行过滤和改写
+           不是复制克隆目标对象，只是拦截目标对象更改默认行为；
+           可以使用set()和get()方法，对目标对象的数据进行过滤和验证；
+           代理对象中任何未公开或不存在的属性，可自定义返回内容；
+           代理可以阻止赋值的默认行为：直接return false,禁止赋值
+            
+        */
+        //创建一个代理，参数1拦截的目标对象，参数2拦截行为，参数2如果是空对象，代理直接会调用目标对象
+        var obj={
+            name:'张三',
+            age:100,
+            gender:'男'
+        }
+        let p = new Proxy(obj,{
+            //get方法用于拦截某个属性的读取操作
+            //直接return,通过代理对象无论访问目标对象的任何属性都是fail
+            get(target,property){   //target指obj,property指属性值
+                if(property ==='age'){
+                    return target[property];   
+                }else{
+                     return 'fail';   //访问其他属性返回fail
+                }
+            },
+            set(target,property,value){       //改变属性的值
+                //return false;   阻止赋值的默认行为，禁止赋值
+                if(property === 'age'){
+                    if(!Number.isInteger(value) || value>150){
+                        throw new TypeError('年龄不合法');
+                    }
+                    target[property] = value
+                }
+            }
+        
+        })
+
+        console.log(p.name);   //fail
+        console.log(p.age)       //100
+        p.age = 200,
+        console.log(p.age)   //200
+        console.log(obj.age) //200,原对象也改变
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('异步1')
+                // console.log('异步1')
+            }, 3500) //回调函数
+        })
+
+        let p2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('异步2')
+                // console.log('异步2')
+            }, 800) //回调函数
+        })
+
+        let p3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('异步3')
+                // console.log('异步3')
+            }, 1500) //回调函数
+        })
+
+        //按顺序执行
+        //  let as = async ()=>{
+        //      let r1 = await p1,
+        //          r2 = await p2,
+        //          r3 = await p3;
+        //      console.log(r1)
+        //      console.log(r2)
+        //      console.log(r3)
+        //  }
+        //  as();
+
+
+         //async和数组使用，按顺序打印一个数组
+        //  let as = async()=>{
+         //    let all = [await p1,await p2,await p3]
+        //      console.log(all)
+        //  }
+        //  as();
+
+
+
+         //async函数如果设置了返回值，这个值是Promise对象
+         async function as(){
+             return 'hello word'
+         }
+        //  console.log(as())    //Promisr{"hello word"}
+        
+         //必须使用then方法来打印
+        as().then(value=>{
+            console.log(value);  //hello word
+        });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

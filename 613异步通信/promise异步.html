@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            Promise移步通信，属于微任务，优先级高于宏任务
+            三种状态：.Pending(进行中)   
+                     .Fulfilled(已成功)
+                     .Rejected(已失败)
+            Promise状态只有两种运动方式：Pending到Fulfilled或Rejected
+        */
+        let p = new Promise((resolve,reject)=>{
+            if(true){
+                resolve('异步成功')   //回调函数
+            }else{
+                reject('异步失败')    //回调函数
+            }
+        })
+        p.then((value)=>{   
+            //resolve回调函数
+           console.log(value)
+        },(reason)=>{
+            //reject回调函数
+            console.log(reason)
+        })
+
+        //Promise提供了resolve()和reject(),直接返回一个成功或失败的实例；
+        //直接返回成功或失败的Promise实例
+        let ps = Promise.resolve('成功');
+        let pj = Promise.reject('失败');
+        ps.then(value=>{
+            console.log(value);
+            return pj;
+        }).catch(reason=>{
+            consol.log(reason)
+        })
+        //等价于
+         new Promise(resolve=>resolve('成功'));
+
+
+        //最常用的场景，类型一致性
+         function getP(){
+             if(false){
+                 return new Promise(resolve=>{
+                     resolve('异步成功');
+                 })
+             }else{
+                 return Promise.resolve(0)    //强制类型一致保证程序正确性
+             }
+         }
+
+         getP().then(value=>{
+             console.log(value);    //输出:0
+         });
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
