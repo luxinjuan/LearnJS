@@ -49,7 +49,7 @@
                如果原型对象中没有则去原型的原型中寻找,直到找到Object对象的原型。
                Object对象的原型没有原型，如果在Object中依然没有找到，则返回undefined   
         */
-       console.log(mc.__proto__.__proto__)  //原型的原型
+        console.log(mc.__proto__.__proto__)  //原型的原型
         console.log(mc.__proto__.__proto__.hasOwnProperty("hasOwnPropertype"))  //
         console.log(mc.__proto__.__proto__.__proto__)   //一层一层往上查找，最后到null
     </script>

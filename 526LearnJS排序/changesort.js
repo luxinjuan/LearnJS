@@ -5,7 +5,7 @@
 
 function changeSortAsc(arr){     //升序
     for(var i = 0;i <= arr.length;i++){
-    for(var j = i+1;j < arr.length;j++){
+      for(var j = i+1;j < arr.length;j++){
         if(arr[i] > arr[j])
         var temp = arr[j];
            arr[j] = arr[i];
@@ -15,7 +15,7 @@ function changeSortAsc(arr){     //升序
 }
 function changeSortDesc(arr){     //降序
     for(var i = 0;i <= arr.length;i++){
-    for(var j = i+1;j < arr.length;j++){
+      for(var j = i+1;j < arr.length;j++){
         if(arr[i] < arr[j])
         var temp = arr[j];
            arr[j] = arr[i];

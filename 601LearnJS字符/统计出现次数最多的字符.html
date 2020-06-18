@@ -14,12 +14,14 @@
         var obj = {};
         for(var i = 0;i<str.length;i++){
             var chars = str.charAt(i);   //chars 是字符串的每一个字符  charAt(位置)查找位置所在的是什么字符
-            if(obj[chars]){        //obj[char]得到的是属性值
+            console.log(chars)
+            if(obj[chars]){        //obj[char]得到的是字符串的出现次数
                 obj[chars]++;
             }else{
                 obj[chars] = 1;
             }
         }
+    
         console.log(obj)
 
 

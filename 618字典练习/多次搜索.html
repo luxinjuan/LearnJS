@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 给定一个较长字符串big和一个包含较短字符串的数组smalls，设计一个方法，
+        // 根据smalls中的每一个较短字符串，对big进行搜索。输出smalls中的字符串在big里出现的所有位置
+        // positions，其中positions[i]为smalls[i]出现的所有位置。
+
+        var multiSearch = function (big, smalls) {
+            let positions = []
+            const getAllIndex = (str) => {
+                if (!str) return [];
+                let i = 0,
+                    result = [];
+                while (i < big.length) {
+                    let index = big.indexOf(str, i);
+                    if (index === -1) {
+                        break;
+                    } else {
+                        result.push(index);
+                        i = index + 1;
+                    }
+                }
+                return result;
+            }
+
+
+            for (let j of smalls) {
+                positions.push(getAllIndex(j));
+            }
+            return positions;
+        };
+
+
+        var big = "mississippi";
+        var smalls = ["is", "ppi", "hi", "sis", "i", "ssippi"];
+        console.log(multiSearch(big, smalls))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

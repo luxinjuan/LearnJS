@@ -23,13 +23,15 @@
         */
         window.onload = function(){
             var oDiv = document.getElementsByTagName('div')
+            console.log(oDiv)
             for(var i=0;i<oDiv.length;i++){
                 oDiv[i].onclick = function(ev){
                     var e = ev||window.event
                     alert(this.id);     //点击div3会依次触发div3,div2,div1
+                  //取消事件冒泡
                   //  e.cancelBubble = true
                   //  e.stopPropagation()
-                  stopBubble(e);
+                  stopBubble(e);  
 
                 }
             }

@@ -6,20 +6,34 @@
     <title>Document</title>
     <script>
         //遍历旧数组
-        //使用newArray.indexOf(数组元素)查找新数组，返回-1说明不存在
-        function unique(arr){
-            var NewArray = [];
-            for(var i = 0;i < arr.length;i++){
-                if(NewArray.indexOf(arr[i]) === -1){
-                    NewArray.push(arr[i]);
-                }
-            }
+        //方法1：使用newArray.indexOf(数组元素)查找新数组，返回-1说明不存在
+        // function unique(arr){
+        //     var NewArray = [];
+        //     for(var i = 0;i < arr.length;i++){
+        //         if(NewArray.indexOf(arr[i]) === -1){
+        //             NewArray.push(arr[i]);
+        //         }
+        //     }
             
-            return NewArray;
-        }
-        var demo = unique([2,1,4,2,4,7,2,1,4,6])
-        console.log(demo)
+        //     return NewArray;
+        // }
+        // var demo = unique([2,1,4,2,4,7,2,1,4,6])
+        // console.log(demo)
         
+        
+        //方法2：使用set()方法
+        // var arr = [2,1,4,2,4,7,2,1,4,6]
+        // var newArray = new Set();
+        // for(var i=0;i<arr.length;i++){
+        //     newArray.add(arr[i])
+        // }
+        // console.log(newArray)
+
+        
+          //方法3：使用set()方法和...
+        var arr = [2,1,4,2,4,7,2,1,4,6]
+        var newArray =[...new Set(arr)];
+        console.log(newArray)
     </script>
 </head>
 <body>

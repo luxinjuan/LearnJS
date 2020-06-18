@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var longestWord = function (words) {
+            words.sort()
+            let obj = {
+                '': true
+            }
+            let maxwords = ''
+            for (const item of words) {
+                if (obj[item.substr(0, item.length - 1)]) {
+                    obj[item] = true
+                    maxwords = maxwords.length < item.length ? item : maxwords
+                }
+            }
+            return maxwords
+        };
+        
+         var word=['a','ap','app','appl','apply','apple']
+         console.log(longestWord(word))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
