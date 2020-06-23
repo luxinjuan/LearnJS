@@ -1,0 +1,24 @@
+<body>
+    <div id="app">
+    <input type="text" id="txt">
+    <p id="show"></p>
+</div>
+</body>
+<script type="text/javascript">
+// 通过Object.defineProperty（）来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应监听回调。
+    var obj = {}
+    Object.defineProperty(obj, 'txt', {
+        get: function () {
+            return obj
+        },
+        set: function (newValue) {
+            document.getElementById('txt').value = newValue
+            document.getElementById('show').innerHTML = newValue
+        }
+    })
+    //keyup()键盘松手就会触发,keydown()是在键盘按下就会触发
+    document.addEventListener('keyup', function (e) {
+        console.log(e)
+        obj.txt = e.target.value
+    })
+</script>
